@@ -9,4 +9,4 @@ xpack.monitoring.elasticsearch.username: elastic
 xpack.monitoring.elasticsearch.password: changeme  
 xpack.monitoring.enabled: true
 # unset by default. see:
-                                                   # https://www.elastic.co/guide/en/logstash/current/ls-security.html#ls-monitoring-user
+# https://www.elastic.co/guide/en/logstash/current/ls-security.html#ls-monitoring-user
