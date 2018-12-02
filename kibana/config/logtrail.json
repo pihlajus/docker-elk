@@ -46,7 +46,7 @@
           "program": "fileset.module",
           "message": "source"
         },
-        "message_format": "{{{fileset.name}}} | {{{nginx.access.url}}} | {{{nginx.error.message}}}"
+        "message_format": "{{{fileset.name}}} | {{{nginx.access.url}}} | {{{nginx.access.body_sent.bytes}}} | {{{nginx.error.message}}}"
       },
       "color_mapping" : {
       }
