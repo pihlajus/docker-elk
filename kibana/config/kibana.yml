@@ -5,3 +5,7 @@
 server.name: kibana
 server.host: "0"
 elasticsearch.url: http://elasticsearch:9200
+
+# Elastalert
+elastalert-kibana-plugin.serverHost: 10.4.11.76
+elastalert-kibana-plugin.serverPort: 3030
