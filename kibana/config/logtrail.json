@@ -42,7 +42,7 @@
       "fields" : {
         "mapping" : {
           "timestamp" : "@timestamp",
-          "hostname" : "beat.name",
+          "hostname" : "host.name",
           "program": "fileset.module",
           "message": "source"
         },
@@ -67,11 +67,11 @@
       "fields" : {
         "mapping" : {
           "timestamp" : "@timestamp",
-          "hostname" : "beat.name",
-          "program": "fileset.module",
+          "hostname" : "host.name",
+          "program": "fileset.name",
           "message": "source"
         },
-        "message_format": "system.syslog.message"
+        "message_format": "{{{system.syslog.message}}}"
       },
       "color_mapping" : {
       }
