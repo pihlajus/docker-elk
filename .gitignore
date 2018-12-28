@@ -1,3 +1,4 @@
 elasticsearch/data/*
 *.iml
 .idea*
+grafana/grafana.db
