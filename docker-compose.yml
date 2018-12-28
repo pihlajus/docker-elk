@@ -59,7 +59,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./grafana-data:/var/lib/grafana
+      - ./grafana:/var/lib/grafana
     environment:
       - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-clock-panel,grafana-worldmap-panel
     restart: always
