@@ -92,8 +92,8 @@
       "fields" : {
         "mapping" : {
           "timestamp" : "@timestamp",
-          "hostname" : "kubernetes.node.name",
-          "program": "kubernetes.container.name",
+          "hostname" : "docker.container.labels.io.kubernetes.pod.namespace",
+          "program": "docker.container.labels.io.kubernetes.container.name",
           "message": "beat.name"
         },
         "message_format": "{{{message}}}"
