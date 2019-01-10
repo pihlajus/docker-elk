@@ -1,6 +1,32 @@
 {
-  "version" : 1,
+  "version" : 2,
   "index_patterns" : [
+    {
+      "es": {
+        "default_index": "filebeat-*-caleo-*"
+      },
+      "default_search": "docker.container.labels.io.kubernetes.container.name:caleo-back",
+      "tail_interval_in_seconds": 10,
+      "es_index_time_offset_in_seconds": 0,
+      "display_timezone": "local",
+      "display_timestamp_format": "MMM DD HH:mm:ss",
+      "max_buckets": 500,
+      "default_time_range_in_days" : 0,
+      "max_hosts": 100,
+      "max_events_to_keep_in_viewer": 5000,
+      "keyword_suffix": "",
+      "fields" : {
+        "mapping" : {
+          "timestamp" : "@timestamp",
+          "hostname" : "docker.container.labels.io.kubernetes.pod.namespace",
+          "program": "docker.container.labels.io.kubernetes.container.name",
+          "message": "beat.name"
+        },
+        "message_format": "{{{message}}}"
+      },
+      "color_mapping" : {
+      }
+    },
     {
       "es": {
         "default_index": "logstash-*"
@@ -72,32 +98,6 @@
           "message": "source"
         },
         "message_format": "{{{system.syslog.message}}}"
-      },
-      "color_mapping" : {
-      }
-    },
-    {
-      "es": {
-        "default_index": "filebeat-*"
-      },
-      "default_search": "docker.container.labels.io.kubernetes.container.name:caleo-back",
-      "tail_interval_in_seconds": 10,
-      "es_index_time_offset_in_seconds": 0,
-      "display_timezone": "local",
-      "display_timestamp_format": "MMM DD HH:mm:ss",
-      "max_buckets": 500,
-      "default_time_range_in_days" : 0,
-      "max_hosts": 100,
-      "max_events_to_keep_in_viewer": 5000,
-      "keyword_suffix": "",
-      "fields" : {
-        "mapping" : {
-          "timestamp" : "@timestamp",
-          "hostname" : "docker.container.labels.io.kubernetes.pod.namespace",
-          "program": "docker.container.labels.io.kubernetes.container.name",
-          "message": "beat.name"
-        },
-        "message_format": "{{{message}}}"
       },
       "color_mapping" : {
       }
