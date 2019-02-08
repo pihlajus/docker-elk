@@ -15,6 +15,13 @@ discovery.zen.minimum_master_nodes: 1
 #
 discovery.type: single-node
 
-# There has been lots of unassigned charts
+# There has been lots of unassigned shards
 # Set default number of replicas to 0 (see https://discuss.elastic.co/t/setting-default-number-of-replicas-for-new-indexes/47782/4)
+# The following setting can be used to get rid of unassigned shards
+# PUT /_cluster/settings
+# {
+#  "transient" : {
+#    "cluster.routing.rebalance.enable" : "all"
+#  }
+# }
 index.number_of_replicas: 0
