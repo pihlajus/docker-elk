@@ -14,3 +14,7 @@ discovery.zen.minimum_master_nodes: 1
 ## see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
 #
 discovery.type: single-node
+
+# There has been lots of unassigned charts
+# Set default number of replicas to 0 (see https://discuss.elastic.co/t/setting-default-number-of-replicas-for-new-indexes/47782/4)
+index.number_of_replicas: 0
