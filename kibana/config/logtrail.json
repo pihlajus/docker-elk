@@ -5,7 +5,7 @@
       "es": {
         "default_index": "filebeat-*-caleo-*"
       },
-      "default_search": "docker.container.labels.io.kubernetes.container.name:caleo-back",
+      "default_search": "docker.container.labels.io.kubernetes.pod.namespace:caleo-dev",
       "tail_interval_in_seconds": 10,
       "es_index_time_offset_in_seconds": 0,
       "display_timezone": "local",
