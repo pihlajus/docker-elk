@@ -303,3 +303,34 @@ $ docker stack services elk
 
 **NOTE:** to scale Elasticsearch in Swarm mode, configure *zen* to use the DNS name `tasks.elasticsearch` instead of
 `elasticsearch`.
+
+### ISSUES
+ There has been lots of unassigned shards which cat cause some issues. 
+ Run the following requests in dev console to get rid of unassigned shards.
+ ```
+ PUT /*/_settings
+ {
+  "index" : {
+   "number_of_replicas":0
+  }
+ }
+ 
+ PUT /_cluster/settings
+ {
+  "transient" : {
+    "cluster.routing.rebalance.enable" : "all"
+  }
+ }
+ ```
+ And the key in the current (6.6) version is to define number of replicas in index template.
+ ```
+ PUT /_template/default_template
+ {
+   "index_patterns": ["*"],
+   "settings": {
+     "index": {
+       "number_of_replicas": 0
+     }
+   }
+ }
+ ```
