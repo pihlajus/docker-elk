@@ -3,6 +3,7 @@ version: '2'
 services:
 
   elasticsearch:
+    container_name: elasticsearch
     build:
       context: elasticsearch/
       args:
@@ -20,6 +21,7 @@ services:
     restart: always
 
   logstash:
+    container_name: logstash
     build:
       context: logstash/
       args:
@@ -40,6 +42,7 @@ services:
     restart: always
 
   kibana:
+    container_name: kibana
     build:
       context: kibana/
       args:
@@ -55,6 +58,7 @@ services:
     restart: always
 
   grafana:
+    container_name: grafana
     image: grafana/grafana:5.4.2
     ports:
       - 3000:3000
