@@ -1,6 +1,7 @@
 version: '2'
 
 services:
+  container_name: apm-server
   apm-server:
     build:
       context: extensions/apm-server/
