@@ -64,8 +64,17 @@ services:
       - 3000:3000
     volumes:
       - ./grafana:/var/lib/grafana
-#    environment:
-#      - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-clock-panel,grafana-worldmap-panel
+    restart: always
+    depends_on:
+      - elasticsearch
+
+  es-metrics:
+    container_name: es-metrics
+    build: ../elasticsearch-metrics
+    environment:
+      - ES_METRICS_INDEX_NAME=elasticsearch_metrics
+      - ES_METRICS_CLUSTER_URL=http://$SERVER_IP:9200
+      - ES_METRICS_MONITORING_CLUSTER_URL=http://$SERVER_IP:9200
     restart: always
     depends_on:
       - elasticsearch
