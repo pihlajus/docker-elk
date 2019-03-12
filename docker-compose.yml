@@ -70,7 +70,7 @@ services:
 
   es-metrics:
     container_name: es-metrics
-    build: elasticsearch-metrics
+    build: es-metrics
     environment:
       - ES_METRICS_INDEX_NAME=elasticsearch_metrics
       - ES_METRICS_CLUSTER_URL=http://$SERVER_IP:9200
