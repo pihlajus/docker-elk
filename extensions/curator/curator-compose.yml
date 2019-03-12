@@ -1,8 +1,6 @@
 version: '2'
 
 services:
-
-
   curator:
     container_name: curator
     build:
