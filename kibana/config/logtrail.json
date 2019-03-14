@@ -5,7 +5,6 @@
       "es": {
         "default_index": "filebeat-*-caleo-*"
       },
-      "default_search": "docker.container.labels.io.kubernetes.pod.namespace:caleo-dev",
       "tail_interval_in_seconds": 10,
       "es_index_time_offset_in_seconds": 0,
       "display_timezone": "local",
@@ -98,6 +97,31 @@
           "message": "source"
         },
         "message_format": "{{{system.syslog.message}}}"
+      },
+      "color_mapping" : {
+      }
+    },
+    {
+      "es": {
+        "default_index": "filebeat-*-elk-*"
+      },
+      "tail_interval_in_seconds": 10,
+      "es_index_time_offset_in_seconds": 0,
+      "display_timezone": "local",
+      "display_timestamp_format": "MMM DD HH:mm:ss",
+      "max_buckets": 500,
+      "default_time_range_in_days" : 0,
+      "max_hosts": 100,
+      "max_events_to_keep_in_viewer": 5000,
+      "keyword_suffix": "",
+      "fields" : {
+        "mapping" : {
+          "timestamp" : "@timestamp",
+          "hostname" : "host.name",
+          "program": "docker.container.name",
+          "message": "stream"
+        },
+        "message": "{{{system.syslog.message}}}"
       },
       "color_mapping" : {
       }
