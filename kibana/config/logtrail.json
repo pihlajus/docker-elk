@@ -121,7 +121,7 @@
           "program": "docker.container.name",
           "message": "stream"
         },
-        "message": "{{{system.syslog.message}}}"
+        "message": "{{{message}}}"
       },
       "color_mapping" : {
       }
