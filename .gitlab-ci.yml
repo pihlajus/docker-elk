@@ -17,5 +17,5 @@ docker-elk build:
   image: docker:stable
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN https://$PRIVATE_REGISTRY
-    - docker build $PRIVATE_REGISTRY/$ELK_IMAGE:latest .
+    - docker-compose -f docker-compose.yml -f extensions/apm-server/apm-server-compose.yml -f extensions/curator/curator-compose.yml build $PRIVATE_REGISTRY/$ELK_IMAGE:latest .
     - docker push $PRIVATE_REGISTRY/$ELK_IMAGE:latest
