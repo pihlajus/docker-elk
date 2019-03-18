@@ -17,7 +17,7 @@ actions:
       source: creation_date
       direction: older
       unit: days
-      unit_count: ${UNIT_COUNT}
+      unit_count: 90
   2:
     action: delete_indices
     description: >-
@@ -36,4 +36,4 @@ actions:
       source: creation_date
       direction: older
       unit: days
-      unit_count: ${UNIT_COUNT}
+      unit_count: 90
