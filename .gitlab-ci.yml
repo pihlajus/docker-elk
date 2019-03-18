@@ -1,0 +1,21 @@
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+  PRIVATE_REGISTRY: git.codemen.fi:4567
+  ELK_IMAGE: docker-elk
+
+services:
+  - docker:dind
+
+stages:
+  - build
+
+docker-elk build:
+  tags:
+    - build
+  stage: build
+  image: docker:stable
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN https://$PRIVATE_REGISTRY
+    - docker build $PRIVATE_REGISTRY/$ELK_IMAGE:latest .
+    - docker push $PRIVATE_REGISTRY/$ELK_IMAGE:latest
