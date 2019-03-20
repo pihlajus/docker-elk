@@ -47,6 +47,7 @@ services:
       context: kibana/
       args:
         ELK_VERSION: $ELK_VERSION
+    image: git.codemen.fi:4567/devops/docker-elk/kibana
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
@@ -76,6 +77,22 @@ services:
       - ES_METRICS_CLUSTER_URL=http://$ELASTICSEARCH_HOST:9200
       - ES_METRICS_MONITORING_CLUSTER_URL=http://$ELASTICSEARCH_HOST:9200
     restart: always
+    depends_on:
+      - elasticsearch
+
+  curator:
+    container_name: curator
+    build:
+      context: curator/
+    image: git.codemen.fi:4567/devops/docker-elk/curator
+    environment:
+      ELASTICSEARCH_HOST: elasticsearch
+      CRON: 0 0 * * *
+      CONFIG_FILE: /usr/share/curator/config/curator.yml
+      COMMAND: /usr/share/curator/config/delete_log_files_curator.yml
+      UNIT_COUNT: 90
+    networks:
+      - elk
     depends_on:
       - elasticsearch
 
