@@ -121,7 +121,7 @@
           "program": "docker.container.name",
           "message": "stream"
         },
-        "message": "{{{message}}}"
+        "message_format": "{{{message}}}"
       },
       "color_mapping" : {
       }
