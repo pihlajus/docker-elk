@@ -14,4 +14,4 @@ actions:
       source: creation_date
       direction: older
       unit: days
-      unit_count: 120
+      unit_count: 90
