@@ -58,17 +58,6 @@ services:
       - elasticsearch
     restart: always
 
-  grafana:
-    container_name: grafana
-    image: grafana/grafana:5.4.2
-    ports:
-      - 3000:3000
-    volumes:
-      - ./grafana:/var/lib/grafana
-    restart: always
-    depends_on:
-      - elasticsearch
-
   es-metrics:
     container_name: es-metrics
     build: es-metrics
